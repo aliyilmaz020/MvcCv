@@ -15,6 +15,7 @@ namespace MvcCv.Models.Entity
     public partial class Talent
     {
         public int ID { get; set; }
-        public string Talent1 { get; set; }
+        public string TalentName { get; set; }
+        public Nullable<byte> TalentPercent { get; set; }
     }
 }

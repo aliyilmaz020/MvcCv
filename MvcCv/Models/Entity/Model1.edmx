@@ -78,7 +78,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Talent" Type="varchar" MaxLength="100" />
+          <Property Name="TalentName" Type="varchar" MaxLength="100" />
+          <Property Name="TalentPercent" Type="tinyint" />
         </EntityType>
         <EntityContainer Name="DbCvModelStoreContainer">
           <EntitySet Name="Abouts" EntityType="Self.Abouts" Schema="dbo" store:Type="Tables" />
@@ -167,7 +168,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Talent1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TalentName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TalentPercent" Type="Byte" />
         </EntityType>
         <EntityContainer Name="DbCvEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Abouts" EntityType="Self.About" />
@@ -263,8 +265,9 @@
           <EntitySetMapping Name="Talents">
             <EntityTypeMapping TypeName="DbCvModel.Talent">
               <MappingFragment StoreEntitySet="Talents">
+                <ScalarProperty Name="TalentPercent" ColumnName="TalentPercent" />
+                <ScalarProperty Name="TalentName" ColumnName="TalentName" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Talent1" ColumnName="Talent" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
