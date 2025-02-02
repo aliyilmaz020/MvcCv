@@ -1,0 +1,19 @@
+﻿@model MvcCv.Models.Entity.Experience
+@{
+    ViewBag.Title = "AddExperience";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h3>Yeni Deneyim Ekleme Sayfası</h3>
+<br />
+<form method="post">
+    <input type="text" name="Title" class="form-control" placeholder="Başlık" required />
+    <br />
+    <input type="text" name="SubTitle" class="form-control" placeholder="Alt Başlık" required />
+    <br />
+    <input type="text" name="Date" class="form-control" placeholder="Çalışma Tarihi" required />
+    <br />
+    <textarea rows="6" cols="1" type="text" class="form-control" name="Description" placeholder="Açıklama" required></textarea>
+    <br />
+    <button class="btn btn-info" type="submit">Kaydet</button>
+</form>
