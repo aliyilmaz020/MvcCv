@@ -1,4 +1,5 @@
-﻿using MvcCv.Repositories;
+﻿using MvcCv.Models.Entity;
+using MvcCv.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,38 @@ namespace MvcCv.Controllers
         {
             var values = repo.List();
             return View(values);
+        }
+        [HttpGet]
+        public ActionResult AddTalent()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddTalent(Talent t)
+        {
+            repo.TAdd(t);
+            return RedirectToAction("Index");
+        }
+        public ActionResult Remove(int id)
+        {
+            var value = repo.TGet(id);
+            repo.TRemove(value);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var value = repo.TGet(id);
+            return View(value);
+        }
+        [HttpPost]
+        public ActionResult Edit(Talent t)
+        {
+            var updateTalent = repo.TGet(t.ID);
+            updateTalent.TalentName = t.TalentName;
+            updateTalent.TalentPercent = t.TalentPercent;
+            repo.TUpdate(updateTalent);
+            return RedirectToAction("Index");
         }
     }
 }
