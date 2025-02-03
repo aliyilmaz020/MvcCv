@@ -16,15 +16,15 @@ namespace MvcCv.Models.Entity
     public partial class Education
     {
         public int ID { get; set; }
-        [Required(ErrorMessage ="Bu Alan Boþ Geçilemez.")]
+        [Required(ErrorMessage = "Bu Alan Boþ Geçilemez.")]
         public string Title { get; set; }
         [Required(ErrorMessage = "Bu Alan Boþ Geçilemez.")]
         public string SubTitle { get; set; }
-        [Required(ErrorMessage = "Bu Alan Boþ Geçilemez.")]
         public string SubTitle2 { get; set; }
         [Required(ErrorMessage = "Bu Alan Boþ Geçilemez.")]
-        [StringLength(10,ErrorMessage ="Lütfen En Fazla 10 Karakter Giriniz")]
+        [StringLength(10, ErrorMessage = "Lütfen En Fazla 10 Karakter Giriniz")]
         public string GPA { get; set; }
+        [Required(ErrorMessage = "Bu Alan Boþ Geçilemez.")]
         public string Date { get; set; }
     }
 }
