@@ -1,0 +1,24 @@
+﻿@model MvcCv.Models.Entity.Education
+@{
+    ViewBag.Title = "AddEducation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<title>Yeni Eğitim Ekleme</title>
+<br />
+<h3>Yeni Eğitim Ekleme Sayfası</h3>
+<br />
+<form method="post">
+    <input type="text" name="Title" class="form-control" placeholder="Okul" required />
+    <br />
+    <input type="text" name="SubTitle" class="form-control" placeholder="Okul Türü" required />
+    <br />
+    <input type="text" name="SubTitle2" class="form-control" placeholder="Bölüm" required />
+    <br />
+    <input type="text" name="GPA" class="form-control" placeholder="Not Ortalaması" required />
+    <br />
+    <input type="text" name="Date" class="form-control" placeholder="Okuduğu Tarih" required />
+    <br />
+    <button class="btn btn-info" type="submit">Kaydet</button>
+</form>
+
