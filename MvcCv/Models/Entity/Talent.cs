@@ -16,6 +16,9 @@ namespace MvcCv.Models.Entity
     {
         public int ID { get; set; }
         public string TalentName { get; set; }
+        //[Required(ErrorMessage ="Bu Alan Boþ Geçilemez")]
+        //[MaxLength(100,ErrorMessage ="0-100 arasý girilmelidir")]
+        //[MinLength(0,ErrorMessage ="0-100 arasý girilmelidir")]
         public Nullable<byte> TalentPercent { get; set; }
     }
 }

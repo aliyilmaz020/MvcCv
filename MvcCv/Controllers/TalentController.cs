@@ -25,6 +25,10 @@ namespace MvcCv.Controllers
         [HttpPost]
         public ActionResult AddTalent(Talent t)
         {
+            //if (!ModelState.IsValid)
+            //{
+            //    return View("AddTalent");
+            //}
             repo.TAdd(t);
             return RedirectToAction("Index");
         }

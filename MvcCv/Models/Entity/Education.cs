@@ -11,13 +11,19 @@ namespace MvcCv.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Education
     {
         public int ID { get; set; }
+        [Required(ErrorMessage ="Bu Alan Boþ Geçilemez.")]
         public string Title { get; set; }
+        [Required(ErrorMessage = "Bu Alan Boþ Geçilemez.")]
         public string SubTitle { get; set; }
+        [Required(ErrorMessage = "Bu Alan Boþ Geçilemez.")]
         public string SubTitle2 { get; set; }
+        [Required(ErrorMessage = "Bu Alan Boþ Geçilemez.")]
+        [StringLength(10,ErrorMessage ="Lütfen En Fazla 10 Karakter Giriniz")]
         public string GPA { get; set; }
         public string Date { get; set; }
     }

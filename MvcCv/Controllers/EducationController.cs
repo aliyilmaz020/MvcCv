@@ -25,6 +25,10 @@ namespace MvcCv.Controllers
         [HttpPost]
         public ActionResult AddEducation(Education e)
         {
+            if(!ModelState.IsValid)
+            {
+                return View("AddEducation");
+            }
             repo.TAdd(e);
             return RedirectToAction("Index");
         }

@@ -10,6 +10,7 @@
     <input type="text" class="form-control" name="TalentName" placeholder="Yetenek" required />
     <br />
     <input type="text" class="form-control" name="TalentPercent" placeholder="Yetenek Oranı" required />
+    @*@Html.ValidationMessageFor(x => x.TalentPercent, "", new {@style="color:red"})*@
     <br />
     <button type="submit" class="btn btn-info">Kaydet</button>
 </form>

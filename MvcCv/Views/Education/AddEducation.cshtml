@@ -9,15 +9,17 @@
 <h3>Yeni Eğitim Ekleme Sayfası</h3>
 <br />
 <form method="post">
-    <input type="text" name="Title" class="form-control" placeholder="Okul" required />
+    <input type="text" name="Title" class="form-control" placeholder="Okul" />
+    @Html.ValidationMessageFor(x => x.Title, "", new { @style = "color:red" })
     <br />
-    <input type="text" name="SubTitle" class="form-control" placeholder="Okul Türü" required />
+    <input type="text" name="SubTitle" class="form-control" placeholder="Okul Türü" />
     <br />
-    <input type="text" name="SubTitle2" class="form-control" placeholder="Bölüm" required />
+    <input type="text" name="SubTitle2" class="form-control" placeholder="Bölüm" />
     <br />
-    <input type="text" name="GPA" class="form-control" placeholder="Not Ortalaması" required />
+    <input type="text" name="GPA" class="form-control" placeholder="Not Ortalaması" />
+    @Html.ValidationMessageFor(x => x.GPA, "", new {@style="color:blue"})
     <br />
-    <input type="text" name="Date" class="form-control" placeholder="Okuduğu Tarih" required />
+    <input type="text" name="Date" class="form-control" placeholder="Okuduğu Tarih" />
     <br />
     <button class="btn btn-info" type="submit">Kaydet</button>
 </form>
