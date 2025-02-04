@@ -12,7 +12,7 @@ namespace MvcCv.Controllers
     public class LoginController : Controller
     {
         // GET: Login
-        DbCvEntities db = new DbCvEntities();
+        DbMvcCvEntities db = new DbMvcCvEntities();
         [HttpGet]
         public ActionResult Index()
         {

@@ -8,7 +8,7 @@ namespace MvcCv.Controllers
     [AllowAnonymous] //Authorized ı bu sayfada devre dışı bırakmak için kullandık
     public class DefaultController : Controller
     {
-        DbCvEntities db = new DbCvEntities();
+        DbMvcCvEntities db = new DbMvcCvEntities();
         // GET: Default
         public ActionResult Index()
         {

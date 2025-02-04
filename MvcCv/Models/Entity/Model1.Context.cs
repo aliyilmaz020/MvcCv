@@ -13,10 +13,10 @@ namespace MvcCv.Models.Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DbCvEntities : DbContext
+    public partial class DbMvcCvEntities : DbContext
     {
-        public DbCvEntities()
-            : base("name=DbCvEntities")
+        public DbMvcCvEntities()
+            : base("name=DbMvcCvEntities")
         {
         }
     
@@ -32,7 +32,7 @@ namespace MvcCv.Models.Entity
         public virtual DbSet<Education> Educations { get; set; }
         public virtual DbSet<Experience> Experiences { get; set; }
         public virtual DbSet<Hobby> Hobbies { get; set; }
-        public virtual DbSet<Talent> Talents { get; set; }
         public virtual DbSet<SocialMedia> SocialMedias { get; set; }
+        public virtual DbSet<Talent> Talents { get; set; }
     }
 }

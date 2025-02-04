@@ -8,7 +8,7 @@ namespace MvcCv.Repositories
 {
     public class GenericRepository<T> where T : class, new()
     {
-        DbCvEntities db = new DbCvEntities();
+        DbMvcCvEntities db = new DbMvcCvEntities();
         public List<T> List()
         {
             return db.Set<T>().ToList();

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DbCvModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DbMvcCvModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Abouts">
           <Key>
             <PropertyRef Name="ID" />
@@ -92,7 +92,7 @@
           <Property Name="TalentName" Type="varchar" MaxLength="100" />
           <Property Name="TalentPercent" Type="tinyint" />
         </EntityType>
-        <EntityContainer Name="DbCvModelStoreContainer">
+        <EntityContainer Name="DbMvcCvModelStoreContainer">
           <EntitySet Name="Abouts" EntityType="Self.Abouts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Awards" EntityType="Self.Awards" Schema="dbo" store:Type="Tables" />
@@ -103,10 +103,11 @@
           <EntitySet Name="SocialMedias" EntityType="Self.SocialMedias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Talents" EntityType="Self.Talents" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DbCvModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DbMvcCvModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="About">
           <Key>
             <PropertyRef Name="ID" />
@@ -165,8 +166,8 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="SubTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Date" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Hobby">
           <Key>
@@ -176,25 +177,6 @@
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Description2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="Talent">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TalentName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="TalentPercent" Type="Byte" />
-        </EntityType>
-        <EntityContainer Name="DbCvEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Abouts" EntityType="Self.About" />
-          <EntitySet Name="Admins" EntityType="Self.Admin" />
-          <EntitySet Name="Awards" EntityType="Self.Award" />
-          <EntitySet Name="Contacts" EntityType="Self.Contact" />
-          <EntitySet Name="Educations" EntityType="Self.Education" />
-          <EntitySet Name="Experiences" EntityType="Self.Experience" />
-          <EntitySet Name="Hobbies" EntityType="Self.Hobby" />
-          <EntitySet Name="Talents" EntityType="Self.Talent" />
-          <EntitySet Name="SocialMedias" EntityType="DbCvModel.SocialMedia" />
-        </EntityContainer>
         <EntityType Name="SocialMedia">
           <Key>
             <PropertyRef Name="ID" />
@@ -205,14 +187,33 @@
           <Property Name="Icon" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Status" Type="Boolean" />
         </EntityType>
+        <EntityType Name="Talent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TalentName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TalentPercent" Type="Byte" />
+        </EntityType>
+        <EntityContainer Name="DbMvcCvEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Abouts" EntityType="Self.About" />
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Awards" EntityType="Self.Award" />
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="Educations" EntityType="Self.Education" />
+          <EntitySet Name="Experiences" EntityType="Self.Experience" />
+          <EntitySet Name="Hobbies" EntityType="Self.Hobby" />
+          <EntitySet Name="SocialMedias" EntityType="Self.SocialMedia" />
+          <EntitySet Name="Talents" EntityType="Self.Talent" />
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DbCvModelStoreContainer" CdmEntityContainer="DbCvEntities">
+        <EntityContainerMapping StorageEntityContainer="DbMvcCvModelStoreContainer" CdmEntityContainer="DbMvcCvEntities">
           <EntitySetMapping Name="Abouts">
-            <EntityTypeMapping TypeName="DbCvModel.About">
+            <EntityTypeMapping TypeName="DbMvcCvModel.About">
               <MappingFragment StoreEntitySet="Abouts">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -226,7 +227,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Admins">
-            <EntityTypeMapping TypeName="DbCvModel.Admin">
+            <EntityTypeMapping TypeName="DbMvcCvModel.Admin">
               <MappingFragment StoreEntitySet="Admins">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
@@ -235,16 +236,16 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Awards">
-            <EntityTypeMapping TypeName="DbCvModel.Award">
+            <EntityTypeMapping TypeName="DbMvcCvModel.Award">
               <MappingFragment StoreEntitySet="Awards">
-                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Contacts">
-            <EntityTypeMapping TypeName="DbCvModel.Contact">
+            <EntityTypeMapping TypeName="DbMvcCvModel.Contact">
               <MappingFragment StoreEntitySet="Contacts">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
@@ -256,7 +257,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Educations">
-            <EntityTypeMapping TypeName="DbCvModel.Education">
+            <EntityTypeMapping TypeName="DbMvcCvModel.Education">
               <MappingFragment StoreEntitySet="Educations">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -268,18 +269,18 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Experiences">
-            <EntityTypeMapping TypeName="DbCvModel.Experience">
+            <EntityTypeMapping TypeName="DbMvcCvModel.Experience">
               <MappingFragment StoreEntitySet="Experiences">
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hobbies">
-            <EntityTypeMapping TypeName="DbCvModel.Hobby">
+            <EntityTypeMapping TypeName="DbMvcCvModel.Hobby">
               <MappingFragment StoreEntitySet="Hobbies">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -287,23 +288,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Talents">
-            <EntityTypeMapping TypeName="DbCvModel.Talent">
-              <MappingFragment StoreEntitySet="Talents">
-                <ScalarProperty Name="TalentPercent" ColumnName="TalentPercent" />
-                <ScalarProperty Name="TalentName" ColumnName="TalentName" />
+          <EntitySetMapping Name="SocialMedias">
+            <EntityTypeMapping TypeName="DbMvcCvModel.SocialMedia">
+              <MappingFragment StoreEntitySet="SocialMedias">
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SocialMedias">
-            <EntityTypeMapping TypeName="DbCvModel.SocialMedia">
-              <MappingFragment StoreEntitySet="SocialMedias">
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Icon" ColumnName="Icon" />
-                <ScalarProperty Name="Link" ColumnName="Link" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
+          <EntitySetMapping Name="Talents">
+            <EntityTypeMapping TypeName="DbMvcCvModel.Talent">
+              <MappingFragment StoreEntitySet="Talents">
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TalentName" ColumnName="TalentName" />
+                <ScalarProperty Name="TalentPercent" ColumnName="TalentPercent" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
