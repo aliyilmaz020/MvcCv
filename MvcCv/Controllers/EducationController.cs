@@ -12,6 +12,7 @@ namespace MvcCv.Controllers
     {
         // GET: Education
         GenericRepository<Education> repo = new GenericRepository<Education>();
+        [Authorize]
         public ActionResult Index()
         {
             var values = repo.List();
