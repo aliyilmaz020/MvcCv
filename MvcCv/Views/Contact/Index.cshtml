@@ -1,0 +1,58 @@
+﻿@using MvcCv.Models.Entity
+@model List<Contact>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<title>İletişim</title>
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- /.col -->
+                <div class="col-md-12">
+                    <br />
+                            <div class="tab-content">
+                                    <!-- The timeline -->
+                                    <div class="timeline timeline-inverse">
+                                        @foreach (var x in Model)
+                                        {
+                                        <!-- timeline time label -->
+                                        <div class="time-label" style="margin-left:4px">
+                                            <span class="bg-info">
+                                                @(((DateTime)x.Date).ToString("dd MMM yyyy"))
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-comments bg-warning"></i>
+                                            <div class="timeline-item">
+                                                <span class="time"><i class="far fa-clock"></i>@x.Mail</span>
+                                                <h3 class="timeline-header"><a href="#">@x.NameSurname</a> @x.Topic</h3>
+                                                <div class="timeline-body">
+                                                    @x.Message
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            @*<i class="far fa-clock bg-gray"></i>*@
+                                        </div>
+                                        }
+                                    </div>
+                            </div>
+                    </div>
+                    <!-- /.nav-tabs-custom -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+    </section>
+</body>
+</html>
