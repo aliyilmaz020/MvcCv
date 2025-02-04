@@ -41,7 +41,15 @@ namespace MvcCv.Controllers
             media.Name = s.Name;
             media.Link = s.Link;
             media.Icon = s.Icon;
+            media.Status = true;
             repo.TUpdate(media);
+            return RedirectToAction("Index");
+        }
+        public ActionResult Remove(int id)
+        {
+            var value = repo.TGet(id);
+            value.Status = false;
+            repo.TUpdate(value);
             return RedirectToAction("Index");
         }
     }

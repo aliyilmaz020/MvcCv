@@ -4,6 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+@{string status = "";}
 <title>Sosyal Medya</title>
 <html>
 <body class="hold-transition sidebar-mini">
@@ -26,15 +27,27 @@
                                         <tr>
                                             <th style="width: 10px">#</th>
                                             <th>Sosyal Medya</th>
+                                            <th>Durum</th>
                                             <th>İşlemler</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach (var x in Model)
                                         {
+                                            {
+                                                if (x.Status == true)
+                                                {
+                                                    status = "Aktif";
+                                                }
+                                                else
+                                                {
+                                                    status = "Pasif";
+                                                }
+                                            }
                                             <tr>
                                                 <td>@x.ID</td>
                                                 <td>@x.Name</td>
+                                                <td>@status</td>
                                                 <td>
                                                     <a href="/SocialMedia/Remove/@x.ID" class="btn btn-danger btn-sm">
                                                         <i class="fas fa-trash">
