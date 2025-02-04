@@ -52,5 +52,10 @@ namespace MvcCv.Controllers
             db.SaveChanges();
             return PartialView();
         }
+        public PartialViewResult SocialMedia()
+        {
+            var values = db.SocialMedias.ToList();
+            return PartialView(values);
+        }
     }
 }
