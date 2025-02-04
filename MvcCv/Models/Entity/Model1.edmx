@@ -74,6 +74,14 @@
           <Property Name="Description" Type="varchar(max)" />
           <Property Name="Description2" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="SocialMedias">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" />
+          <Property Name="Link" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Talents">
           <Key>
             <PropertyRef Name="ID" />
@@ -90,6 +98,7 @@
           <EntitySet Name="Educations" EntityType="Self.Educations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Experiences" EntityType="Self.Experiences" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Hobbies" EntityType="Self.Hobbies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SocialMedias" EntityType="Self.SocialMedias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Talents" EntityType="Self.Talents" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -182,7 +191,16 @@
           <EntitySet Name="Experiences" EntityType="Self.Experience" />
           <EntitySet Name="Hobbies" EntityType="Self.Hobby" />
           <EntitySet Name="Talents" EntityType="Self.Talent" />
+          <EntitySet Name="SocialMedias" EntityType="DbCvModel.SocialMedia" />
         </EntityContainer>
+        <EntityType Name="SocialMedia">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Link" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -270,6 +288,15 @@
               <MappingFragment StoreEntitySet="Talents">
                 <ScalarProperty Name="TalentPercent" ColumnName="TalentPercent" />
                 <ScalarProperty Name="TalentName" ColumnName="TalentName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SocialMedias">
+            <EntityTypeMapping TypeName="DbCvModel.SocialMedia">
+              <MappingFragment StoreEntitySet="SocialMedias">
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
